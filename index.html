@@ -25,6 +25,7 @@
             margin-bottom: 1rem;
             color: #ff6f61;
             text-shadow: 0 5px 15px rgba(255, 111, 97, 0.8);
+            text-align: center;
         }
         p {
             font-size: 1.2rem;
@@ -32,6 +33,7 @@
             text-align: center;
             margin-bottom: 2rem;
             display: none; /* Initially hide the text */
+            padding: 0 1rem;
         }
         .greeting {
             text-align: center;
@@ -59,17 +61,17 @@
         .photos-container {
             display: none;
             position: absolute;
-            top: 10%;
+            top: 15%;
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
             z-index: 10;
-            flex-wrap: wrap;
         }
         .photos-container img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             opacity: 0;
@@ -129,8 +131,8 @@
                 padding: 0.5rem 1rem;
             }
             .photos-container img {
-                width: 120px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
             }
         }
 
@@ -146,8 +148,8 @@
                 padding: 0.4rem 0.8rem;
             }
             .photos-container img {
-                width: 100px;
-                height: 100px;
+                width: 80px;
+                height: 80px;
             }
         }
     </style>
@@ -157,14 +159,15 @@
         <h1 id="birthday-title">🎉 Happy Birthday Anushka(Meloti)! 🎉</h1>
         <p id="custom-message">Wishing you a day filled with love, joy, and countless wonderful surprises! 🎁💖
             I know I might not be the best person, but I hope and think I will be enough for you, wishing you a happy birthday...
-            always be happy ji 💖💖, i'll always love you meloti💖💖💖💖</p>
-        <button id="birthday-button" onclick="activateEffects()">Click Me!</button>
+            always be happy ji 💖💖, I'll always love you Meloti 💖💖💖💖</p>
+        <button id="birthday-button" onclick="activateEffects()" ontouchstart="activateEffects()">Click Me!</button>
         <div class="photos-container" id="photos-container">
-            <img src="images/Photo 1.jpg" alt="Photo 1">
-            <img src="images/Photo 2.jpg" alt="Photo 2">
-            <img src="images/Photo 3.jpg" alt="Photo 3">
-            <img src="images/Photo 4.jpg" alt="Photo 4">
-            <img src="images/Photo 5.jpg" alt="Photo 5">
+            <img src="images/Photo1.jpg" alt="Photo 1">
+            <img src="images/Photo2.jpg" alt="Photo 2">
+            <img src="images/Photo3.jpg" alt="Photo 3">
+            <img src="images/Photo4.jpg" alt="Photo 4">
+            <img src="images/Photo5.jpg" alt="Photo 5">
+            <img src="images/Photo6.jpg" alt="Photo 6">
         </div>
     </div>
 
@@ -178,7 +181,7 @@
             message.style.display = 'block';
 
             // Show photos with animation
-            photosContainer.style.display = 'flex';
+            photosContainer.style.display = 'grid';
             photos.forEach((photo, index) => {
                 setTimeout(() => {
                     photo.classList.add('show');
