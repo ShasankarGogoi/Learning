@@ -15,15 +15,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             height: 100vh;
             color: #333;
             overflow: hidden;
         }
         h1 {
             font-size: 3.5rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+            margin: 1rem 0;
             color: #ff6f61;
             text-shadow: 0 5px 15px rgba(255, 111, 97, 0.8);
             text-align: center;
@@ -33,11 +32,13 @@
             font-size: 1.2rem;
             color: #333;
             text-align: center;
-            margin: 2rem 1rem 2rem;
+            margin: 1rem 0 2rem;
             display: none; /* Initially hide the text */
+            padding: 0 1rem;
         }
         .greeting {
             text-align: center;
+            padding: 1rem;
         }
         button {
             padding: 0.75rem 1.5rem;
@@ -60,11 +61,11 @@
         }
         .photos-container {
             display: none;
-            margin-bottom: 1.5rem;
+            margin-top: 2rem;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
-            justify-content: center; /* Center horizontally */
+            z-index: 10;
         }
         .photos-container img {
             width: 120px;
@@ -161,7 +162,7 @@
             <img src="images/Photo 5.jpg" alt="Photo 5">
             <img src="images/Photo 6.jpg" alt="Photo 6">
         </div>
-        <h1 id="birthday-title">🎉 Happy Birthday Anushka(Meloti)! 🎉</h1>
+        <h1 id="birthday-title">🎉 Happy Birthday Anushka (Meloti)! 🎉</h1>
         <p id="custom-message">Wishing you a day filled with love, joy, and countless wonderful surprises! 🎁💖
             I know I might not be the best person, but I hope and think I will be enough for you, wishing you a happy birthday...
             I always wonder how you fell for a guy like me but ig that is what fate is and ig it was meant to be ,
@@ -177,9 +178,6 @@
             const message = document.getElementById('custom-message');
             const title = document.getElementById('birthday-title');
 
-            // Show message
-            message.style.display = 'block';
-
             // Show photos with animation
             photosContainer.style.display = 'grid';
             photos.forEach((photo, index) => {
@@ -188,12 +186,15 @@
                 }, index * 300);
             });
 
-            // Create hearts animation on the title
+            // Show message
+            message.style.display = 'block';
+
+            // Create hearts animation from the title
             for (let i = 0; i < 30; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'heart';
-                heart.style.left = `${Math.random() * title.offsetWidth}px`;
-                heart.style.top = `${title.offsetTop}px`;
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.top = `${title.offsetTop}px`; // Align hearts with the title
                 heart.style.animationDuration = `${2 + Math.random() * 2}s`;
                 document.body.appendChild(heart);
 
