@@ -81,6 +81,12 @@
             opacity: 1;
             transform: scale(1.1);
         }
+        .photos-container img.heart-outline {
+            border: 5px solid transparent;
+            border-image-source: url('heart-outline.png'); /* Add your heart outline image here */
+            border-image-slice: 30; /* Adjust as per the heart design */
+            transition: border 0.5s;
+        }
         .heart {
             width: 20px;
             height: 20px;
@@ -184,7 +190,7 @@
             photosContainer.style.display = 'grid';
             photos.forEach((photo, index) => {
                 setTimeout(() => {
-                    photo.classList.add('show');
+                    photo.classList.add('show', 'heart-outline');
                 }, index * 300);
             });
 
