@@ -60,10 +60,8 @@
         }
         .photos-container {
             display: none;
-            position: absolute;
-            top: 15%;
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative; /* Changed from absolute */
+            margin-top: 2rem; /* Add margin to separate photos from the text */
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
