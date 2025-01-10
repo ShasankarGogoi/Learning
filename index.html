@@ -154,7 +154,7 @@
 </head>
 <body>
     <div class="greeting">
-        <audio id="I wanna be yours" src="songs/I wanna be yours.mp3" preload="auto"></audio>
+	<audio id="I wanna be yours" src="songs/I wanna be yours.mp3" preload="auto"></audio>
         <div class="photos-container" id="photos-container">
             <img src="images/Photo 1.jpg" alt="Photo 1">
             <img src="images/Photo 2.jpg" alt="Photo 2">
@@ -178,20 +178,7 @@
             const photos = photosContainer.querySelectorAll('img');
             const message = document.getElementById('custom-message');
             const title = document.getElementById('birthday-title');
-            const song = document.getElementById('I wanna be yours');
-            const button = document.getElementById('birthday-button');
-
-            // Ensure the song starts playing
-            if (song.paused) {
-                song.play().catch(err => {
-                    console.error("Audio playback failed:", err);
-                });
-            }
-
-            // Change button color and disable it to avoid multiple clicks
-            button.style.background = "#ff3e30";
-            button.style.boxShadow = "0 4px 15px rgba(255, 62, 48, 0.4)";
-            button.disabled = true; // Prevent multiple activations
+	    const song = document.getElementById('I wanna be yours');
 
             // Show photos with animation
             photosContainer.style.display = 'grid';
@@ -203,6 +190,7 @@
 
             // Show message
             message.style.display = 'block';
+	    song.play();
 
             // Create hearts animation from the title
             for (let i = 0; i < 30; i++) {
