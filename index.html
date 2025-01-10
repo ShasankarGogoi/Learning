@@ -154,6 +154,7 @@
 </head>
 <body>
     <div class="greeting">
+	<audio id="I wanna be yours" src="songs/I wanna be yours.mp3" preload="auto"></audio>
         <div class="photos-container" id="photos-container">
             <img src="images/Photo 1.jpg" alt="Photo 1">
             <img src="images/Photo 2.jpg" alt="Photo 2">
@@ -177,6 +178,7 @@
             const photos = photosContainer.querySelectorAll('img');
             const message = document.getElementById('custom-message');
             const title = document.getElementById('birthday-title');
+	    const song = document.getElementById('I wanna be yours');
 
             // Show photos with animation
             photosContainer.style.display = 'grid';
@@ -188,6 +190,7 @@
 
             // Show message
             message.style.display = 'block';
+	    song.play();
 
             // Create hearts animation from the title
             for (let i = 0; i < 30; i++) {
